@@ -1,12 +1,12 @@
 //1
 const filterElemsLargerThanNum = (arr, num) => {
-    const targetElems = arr.filter(elem => elem > num);
+    const targetArr = arr.filter(elem => elem > num);
     
-    if(!targetElems.length) {
+    if(!targetArr.length) {
         return "Such values do not exist";
     }
     
-    return targetElems;
+    return targetArr;
 }
 
 //2
@@ -17,17 +17,19 @@ const getEvenDigitNumbers = (num1, num2) => {
             result += `${i}, `;
         }
     }
-
+    
     if(result.at(-1) === " ") {
-        return result.slice(0, -2)
-    } else if (!result.length) {
-        return "such numbers does not exist";
+        return result.slice(0, -2);
+    }
+    
+    if (!result.length) {
+        return "such numbers do not exist";
     }
 
     return result;
 }
 
-const allDigitsAreEven = (num) => {
+const allDigitsAreEven = num => {
     let result = num;
     while(result) {
         if((result % 10) % 2) {
@@ -40,7 +42,7 @@ const allDigitsAreEven = (num) => {
 
 
 //3
-//if the leading numbers are not zero, this code works
+/* assuming leading digits of a number cannot be 0. if it can, then the first if statement in line 47 would be if(!String(num).length) */
 const allDigitsAreOdd = num => {
     if(!num) {
         return true;
@@ -55,11 +57,11 @@ const allDigitsAreOdd = num => {
 
 //4
 const getMinPositiveElem = (arr, min) => {
+    if(!arr.length && min === undefined) {
+        return -1;
+    }
+
     if(!arr.length) {
-        if(min === undefined) {
-            return -1;
-        }
-        
         return min;
     }
     
