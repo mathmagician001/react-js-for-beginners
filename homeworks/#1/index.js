@@ -31,18 +31,20 @@ const getEvenDigitNumbers = (num1, num2) => {
 
 const allDigitsAreEven = num => {
     let result = num;
+
     while(result) {
         if((result % 10) % 2) {
            return false; 
         }
         result = Math.trunc(result / 10);
     }
+
     return true;
 }
 
 
 //3
-/* assuming leading digits of a number cannot be 0. if it can, then the first if statement in line 47 would be if(!String(num).length) */
+/* assuming leading digits of a number cannot be 0. if it can, then the first if statement in line 49 would be if(!String(num).length) */
 const allDigitsAreOdd = num => {
     if(!num) {
         return true;
