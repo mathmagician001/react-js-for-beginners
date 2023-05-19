@@ -10,7 +10,7 @@ const removeFirstElem = (arr, index = 0, arrClone = [...arr]) => {
 
     arrClone[index] = arrClone[index+1];
 
-    return removeFirstElem(arrClone, index + 1, arrClone);
+    return removeFirstElem(null, index + 1, arrClone);
 }
 
 
