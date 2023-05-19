@@ -14,7 +14,6 @@ const removeFirstElem = (arr, index = 0, arrClone = [...arr]) => {
 }
 
 
-
 //2
 const customFlat = arr => {
     let result = [];
@@ -29,6 +28,7 @@ const customFlat = arr => {
 
     return result;
 }
+
 
 //3
 const sumOfDigits = num => {
@@ -49,6 +49,7 @@ const sumOfDigits = num => {
     
     return sum;
 }
+
 
 //4
 const swapKeyValues = obj => {
