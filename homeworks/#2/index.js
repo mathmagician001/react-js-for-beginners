@@ -54,6 +54,7 @@ const sumOfDigits = num => {
 //4
 const swapKeyValues = obj => {
     const result = {};
+
     for(let [key, value] of Object.entries(obj)) {
         if(result.hasOwnProperty(value)) {
             result[value] = [...result[value], key]
