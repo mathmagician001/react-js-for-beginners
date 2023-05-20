@@ -1,7 +1,6 @@
 //1
-const logElems = arr => {
-    arr.forEach(console.log);
-}
+const logElems = arr => arr.forEach(console.log);
+
 
 //2
 const sumOfTwoNums = (num1, num2) => num1 + num2;
