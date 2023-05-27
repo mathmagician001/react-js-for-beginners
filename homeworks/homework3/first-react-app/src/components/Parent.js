@@ -10,6 +10,8 @@ function Parent() {
     setInputValue(value);
   };
 
+  console.log(inputValue);
+
   return (
     <Child inputValue={inputValue} handleInputChange={handleInputChange} />
   );
