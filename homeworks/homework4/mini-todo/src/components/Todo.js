@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import TodoHeader from "./TodoHeader";
 import TodoList from "./TodoList";
-import TodoItem from "./TodoItem";
 
 function Todo() {
-  const [todos, setTodos] = useState([{ id: 1, name: "Garo", checkd: false }]);
+  const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
   useEffect(() => {
     const todosInLocalStorage = localStorage.getItem("todos");
-    console.log(todosInLocalStorage);
     if (todosInLocalStorage) {
       setTodos(JSON.parse(todosInLocalStorage));
     }
@@ -17,23 +17,55 @@ function Todo() {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  const handleAddClick = (todoName) => {
+  const handleInputChange = (value) => setInputValue(value);
+
+  const handleCheckChange = (id) => {
+    setTodos((prevTodos) => {
+      const newTodos = [...prevTodos];
+      const targetTodo = newTodos.find((todo) => todo.id === id);
+      targetTodo.checked = !targetTodo.checked;
+
+      return newTodos;
+    });
+  };
+
+  const handleAddClick = (newTodoName) => {
+    if (!newTodoName.trim()) {
+      return;
+    }
+
     setTodos((prevTodos) => {
       const newTodo = {
         id: prevTodos.at(-1)?.id + 1 || 1,
-        name: todoName,
+        name: newTodoName,
         checked: false,
       };
 
       return [...prevTodos, newTodo];
     });
+
+    setInputValue("");
+  };
+
+  const handleDeleteClick = (id) =>
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+
+  const todoHeaderProps = {
+    inputValue,
+    handleInputChange,
+    handleAddClick,
+  };
+
+  const todoListProps = {
+    todos,
+    handleCheckChange,
+    handleDeleteClick,
   };
 
   return (
     <>
-      <TodoHeader handleAddClick={handleAddClick} />
-      <TodoList todos={todos} />
-      <TodoItem />
+      <TodoHeader {...todoHeaderProps} />
+      <TodoList {...todoListProps} />
     </>
   );
 }

@@ -1,13 +1,19 @@
 import React from "react";
 
-function TodoItem({ todo }) {
+function TodoItem(props) {
+  const { todo, handleCheckChange, handleDeleteClick } = props;
   const { id, name, checked } = todo;
   return (
-    <>
-      <input type="checkbox" checked={checked} />
-      <span>{name}</span>
-      <button>delete</button>
-    </>
+    <li>
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={() => handleCheckChange(id)}
+        id={`todo${id}`}
+      />
+      <label htmlFor={`todo${id}`}>{name}</label>
+      <button onClick={() => handleDeleteClick(id)}>X</button>
+    </li>
   );
 }
 

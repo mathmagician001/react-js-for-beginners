@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
 function TodoHeader(props) {
-  const { handleAddClick } = props;
-  const [inputValue, setInputValue] = useState("");
-
-  const handleInputChange = (value) => setInputValue(value);
+  const { handleAddClick, handleInputChange, inputValue } = props;
 
   return (
     <div>
