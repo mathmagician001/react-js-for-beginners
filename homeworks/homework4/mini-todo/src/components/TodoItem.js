@@ -1,5 +1,3 @@
-import React from "react";
-
 function TodoItem(props) {
   const { todo, handleCheckChange, handleDeleteClick } = props;
   const { id, name, checked } = todo;

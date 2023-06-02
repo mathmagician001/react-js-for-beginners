@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 function TodoHeader(props) {
   const { handleAddClick, handleInputChange, inputValue } = props;
 
