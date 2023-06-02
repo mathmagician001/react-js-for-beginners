@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
+import Todo from "./components/Todo";
 
 function App() {
-  return (
-    <div></div>
-  );
+  return <Todo />;
 }
 
 export default App;
