@@ -41,6 +41,7 @@ function Products() {
       const newProduct = {
         id: prevProducts.at(-1)?.id + 1 || 1,
         name: productName,
+        price,
         imgLink,
         description,
       };
