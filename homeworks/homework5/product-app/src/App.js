@@ -1,9 +1,8 @@
-import React from 'react';
+import Products from "./components/Products";
+import "./styles/styles.css";
 
 function App() {
-  return (
-    <div></div>
-  );
+  return <Products />;
 }
 
 export default App;
